@@ -1,0 +1,15 @@
+GPIO communication via sysfs.
+
+gpio-sysfs.* is a collection of functions which encapsulate the
+reading / writing and interrupt handling of GPIO pins.
+
+The demo program gpio-int-test waits for an interrupt for 
+3secs on a GPIO pin. If an interrup has happened it prints out 
+"interrupt" otherwise "timeout".
+
+To run it type:
+
+make
+sudo ./gpio-int-test 22
+
+which listens on GPIO pin 22.
