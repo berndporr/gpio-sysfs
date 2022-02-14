@@ -138,7 +138,7 @@ int SysGPIO::gpio_set_value(unsigned int value)
 /****************************************************************
  * gpio_get_value
  ****************************************************************/
-int SysGPIO::gpio_get_value(unsigned int *value)
+int SysGPIO::gpio_get_value(unsigned int &value)
 {
   int fd;
   char buf[MAX_BUF];
@@ -155,9 +155,9 @@ int SysGPIO::gpio_get_value(unsigned int *value)
   read(fd, &ch, 1);
 
   if (ch != '0') {
-    *value = 1;
+    value = 1;
   } else {
-    *value = 0;
+    value = 0;
   }
  
   close(fd);

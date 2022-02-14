@@ -52,50 +52,58 @@ class SysGPIO {
 		gpio = gpioNumber;
 	}
 
-	/****************************************************************
+	/**
 	 * Starts accesss to the GPIO port
-	 ****************************************************************/
+	 * \returns error code or zero on success
+	 **/
 	int gpio_export();
 	
-	/****************************************************************
+	/**
 	 * Stops access to the GPIO port
-	 ****************************************************************/
+	 * \returns error code or zero on success
+	 **/
 	int gpio_unexport();
 	
-	/****************************************************************
+	/**
 	 * Sets direction
 	 * \param out_flag is true for output
-	 ****************************************************************/
+	 * \returns error code or zero on success
+	 **/
 	int gpio_set_dir(bool out_flag);
 	
-	/****************************************************************
+	/**
 	 * Sets the value of a port. Can be one or Zero.
-	 ****************************************************************/
+	 * \returns error code or zero on success
+	 **/
 	int gpio_set_value(unsigned int value);
 	
-	/****************************************************************
+	/**
 	 * Gets the value of a port. Will be one or Zero.
-	 ****************************************************************/
-	int gpio_get_value(unsigned int *value);
+	 * \returns error code or zero on success
+	 **/
+	int gpio_get_value(unsigned int &value);
 	
-	/****************************************************************
+	/**
 	 * Sets the change detection on the port. 
 	 * \param edge can be "rising" or "falling".
-	 ****************************************************************/	
+	 * \returns error code or zero on success
+	 **/	
 	int gpio_set_edge(const char *edge);
 
-	/****************************************************************
+	/**
 	 * Gets a file descriptor on the "value" of the port.
-	 ****************************************************************/
+	 * \returns The file descriptor
+	 **/
 	int gpio_fd_open();
 	
-	/****************************************************************
+	/**
 	 * Puts the current thread to sleep until a change is detected
 	 * on the file descriptor. Get the file descriptor
 	 * by calling gpio_fd_open.
 	 * \param gpio_fd file descriptor of value
 	 * \param timeout Timeout in ms.
-	 ****************************************************************/
+	 * \returns error code or one on success
+	 **/
 	int gpio_poll(int gpio_fd, int timeout);
 
  private:

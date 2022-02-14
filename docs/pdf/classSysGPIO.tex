@@ -6,30 +6,146 @@
 \mbox{\Hypertarget{classSysGPIO_af8dbfa78adc37a0484dae0c22855018c}\label{classSysGPIO_af8dbfa78adc37a0484dae0c22855018c}} 
 {\bfseries Sys\+G\+P\+IO} (unsigned int gpio\+Number)
 \item 
+int \mbox{\hyperlink{classSysGPIO_a73efbd317132eef2c3330b527f2c986a}{gpio\+\_\+export}} ()
+\begin{DoxyCompactList}\small\item\em Starts accesss to the G\+P\+IO port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_a2fdbf36acd61b73e6d452c91ec77a975}{gpio\+\_\+unexport}} ()
+\begin{DoxyCompactList}\small\item\em Stops access to the G\+P\+IO port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_a3f8bbb4872f35f39073a7b500d35275d}{gpio\+\_\+set\+\_\+dir}} (bool out\+\_\+flag)
+\begin{DoxyCompactList}\small\item\em Sets direction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_ab86108087c0daffd63681d67fa251dad}{gpio\+\_\+set\+\_\+value}} (unsigned int value)
+\begin{DoxyCompactList}\small\item\em Sets the value of a port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_acae1641843e028c50137a54e98f7b775}{gpio\+\_\+get\+\_\+value}} (unsigned int \&value)
+\begin{DoxyCompactList}\small\item\em Gets the value of a port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_a7b55fd565e384ed926c9a89661e7b2fa}{gpio\+\_\+set\+\_\+edge}} (const char $\ast$edge)
+\begin{DoxyCompactList}\small\item\em Sets the change detection on the port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_a66de9e1b7b46de771f254721e632376c}{gpio\+\_\+fd\+\_\+open}} ()
+\begin{DoxyCompactList}\small\item\em Gets a file descriptor on the \char`\"{}value\char`\"{} of the port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSysGPIO_abee2c878078537aaedde9b9842926b94}{gpio\+\_\+poll}} (int gpio\+\_\+fd, int timeout)
+\begin{DoxyCompactList}\small\item\em Puts the current thread to sleep until a change is detected on the file descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classSysGPIO_a73efbd317132eef2c3330b527f2c986a}\label{classSysGPIO_a73efbd317132eef2c3330b527f2c986a}} 
-int {\bfseries gpio\+\_\+export} ()
-\item 
-\mbox{\Hypertarget{classSysGPIO_a2fdbf36acd61b73e6d452c91ec77a975}\label{classSysGPIO_a2fdbf36acd61b73e6d452c91ec77a975}} 
-int {\bfseries gpio\+\_\+unexport} ()
-\item 
-\mbox{\Hypertarget{classSysGPIO_a3f8bbb4872f35f39073a7b500d35275d}\label{classSysGPIO_a3f8bbb4872f35f39073a7b500d35275d}} 
-int {\bfseries gpio\+\_\+set\+\_\+dir} (bool out\+\_\+flag)
-\item 
-\mbox{\Hypertarget{classSysGPIO_ab86108087c0daffd63681d67fa251dad}\label{classSysGPIO_ab86108087c0daffd63681d67fa251dad}} 
-int {\bfseries gpio\+\_\+set\+\_\+value} (unsigned int value)
-\item 
-\mbox{\Hypertarget{classSysGPIO_a5b5f16fcda4f26b47c83af2e75d3d4d2}\label{classSysGPIO_a5b5f16fcda4f26b47c83af2e75d3d4d2}} 
-int {\bfseries gpio\+\_\+get\+\_\+value} (unsigned int $\ast$value)
-\item 
-\mbox{\Hypertarget{classSysGPIO_a7b55fd565e384ed926c9a89661e7b2fa}\label{classSysGPIO_a7b55fd565e384ed926c9a89661e7b2fa}} 
-int {\bfseries gpio\+\_\+set\+\_\+edge} (const char $\ast$edge)
-\item 
+\index{SysGPIO@{SysGPIO}!gpio\_export@{gpio\_export}}
+\index{gpio\_export@{gpio\_export}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_export()}{gpio\_export()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+export (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts accesss to the G\+P\+IO port. 
+
+\begin{DoxyReturn}{Returns}
+error code or zero on success 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classSysGPIO_a66de9e1b7b46de771f254721e632376c}\label{classSysGPIO_a66de9e1b7b46de771f254721e632376c}} 
-int {\bfseries gpio\+\_\+fd\+\_\+open} ()
-\item 
+\index{SysGPIO@{SysGPIO}!gpio\_fd\_open@{gpio\_fd\_open}}
+\index{gpio\_fd\_open@{gpio\_fd\_open}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_fd\_open()}{gpio\_fd\_open()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+fd\+\_\+open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a file descriptor on the \char`\"{}value\char`\"{} of the port. 
+
+\begin{DoxyReturn}{Returns}
+The file descriptor 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSysGPIO_acae1641843e028c50137a54e98f7b775}\label{classSysGPIO_acae1641843e028c50137a54e98f7b775}} 
+\index{SysGPIO@{SysGPIO}!gpio\_get\_value@{gpio\_get\_value}}
+\index{gpio\_get\_value@{gpio\_get\_value}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_get\_value()}{gpio\_get\_value()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+get\+\_\+value (\begin{DoxyParamCaption}\item[{unsigned int \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Gets the value of a port. 
+
+Will be one or Zero. \begin{DoxyReturn}{Returns}
+error code or zero on success 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classSysGPIO_abee2c878078537aaedde9b9842926b94}\label{classSysGPIO_abee2c878078537aaedde9b9842926b94}} 
-int {\bfseries gpio\+\_\+poll} (int gpio\+\_\+fd, int timeout)
-\end{DoxyCompactItemize}
+\index{SysGPIO@{SysGPIO}!gpio\_poll@{gpio\_poll}}
+\index{gpio\_poll@{gpio\_poll}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_poll()}{gpio\_poll()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+poll (\begin{DoxyParamCaption}\item[{int}]{gpio\+\_\+fd,  }\item[{int}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Puts the current thread to sleep until a change is detected on the file descriptor. 
+
+Get the file descriptor by calling gpio\+\_\+fd\+\_\+open. 
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+fd} & file descriptor of value \\
+\hline
+{\em timeout} & Timeout in ms. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error code or one on success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSysGPIO_a3f8bbb4872f35f39073a7b500d35275d}\label{classSysGPIO_a3f8bbb4872f35f39073a7b500d35275d}} 
+\index{SysGPIO@{SysGPIO}!gpio\_set\_dir@{gpio\_set\_dir}}
+\index{gpio\_set\_dir@{gpio\_set\_dir}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_dir()}{gpio\_set\_dir()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+set\+\_\+dir (\begin{DoxyParamCaption}\item[{bool}]{out\+\_\+flag }\end{DoxyParamCaption})}
+
+
+
+Sets direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+\_\+flag} & is true for output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error code or zero on success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSysGPIO_a7b55fd565e384ed926c9a89661e7b2fa}\label{classSysGPIO_a7b55fd565e384ed926c9a89661e7b2fa}} 
+\index{SysGPIO@{SysGPIO}!gpio\_set\_edge@{gpio\_set\_edge}}
+\index{gpio\_set\_edge@{gpio\_set\_edge}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_edge()}{gpio\_set\_edge()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+set\+\_\+edge (\begin{DoxyParamCaption}\item[{const char $\ast$}]{edge }\end{DoxyParamCaption})}
+
+
+
+Sets the change detection on the port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & can be \char`\"{}rising\char`\"{} or \char`\"{}falling\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error code or zero on success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSysGPIO_ab86108087c0daffd63681d67fa251dad}\label{classSysGPIO_ab86108087c0daffd63681d67fa251dad}} 
+\index{SysGPIO@{SysGPIO}!gpio\_set\_value@{gpio\_set\_value}}
+\index{gpio\_set\_value@{gpio\_set\_value}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_value()}{gpio\_set\_value()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+set\+\_\+value (\begin{DoxyParamCaption}\item[{unsigned int}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the value of a port. 
+
+Can be one or Zero. \begin{DoxyReturn}{Returns}
+error code or zero on success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSysGPIO_a2fdbf36acd61b73e6d452c91ec77a975}\label{classSysGPIO_a2fdbf36acd61b73e6d452c91ec77a975}} 
+\index{SysGPIO@{SysGPIO}!gpio\_unexport@{gpio\_unexport}}
+\index{gpio\_unexport@{gpio\_unexport}!SysGPIO@{SysGPIO}}
+\doxysubsubsection{\texorpdfstring{gpio\_unexport()}{gpio\_unexport()}}
+{\footnotesize\ttfamily int Sys\+G\+P\+I\+O\+::gpio\+\_\+unexport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops access to the G\+P\+IO port. 
+
+\begin{DoxyReturn}{Returns}
+error code or zero on success 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

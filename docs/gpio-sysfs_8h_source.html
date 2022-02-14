@@ -139,61 +139,39 @@ $(document).ready(function(){initNavTree('gpio-sysfs_8h_source.html',''); initRe
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        gpio = gpioNumber;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">     * Starts accesss to the GPIO port</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> gpio_export();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">     * Stops access to the GPIO port</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> gpio_unexport();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">     * Sets direction</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">     * \param out_flag is true for output</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> gpio_set_dir(<span class="keywordtype">bool</span> out_flag);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     * Sets the value of a port. Can be one or Zero.</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> gpio_set_value(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">     * Gets the value of a port. Will be one or Zero.</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">int</span> gpio_get_value(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *value);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * Sets the change detection on the port. </span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     * \param edge can be &quot;rising&quot; or &quot;falling&quot;.</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">     ****************************************************************/</span>  </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> gpio_set_edge(<span class="keyword">const</span> <span class="keywordtype">char</span> *edge);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     * Gets a file descriptor on the &quot;value&quot; of the port.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> gpio_fd_open();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">    /****************************************************************</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">     * Puts the current thread to sleep until a change is detected</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">     * on the file descriptor. Get the file descriptor</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">     * by calling gpio_fd_open.</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">     * \param gpio_fd file descriptor of value</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">     * \param timeout Timeout in ms.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">     ****************************************************************/</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span> gpio_poll(<span class="keywordtype">int</span> gpio_fd, <span class="keywordtype">int</span> timeout);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">int</span> gpio;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;};</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#a73efbd317132eef2c3330b527f2c986a">gpio_export</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#a2fdbf36acd61b73e6d452c91ec77a975">gpio_unexport</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#a3f8bbb4872f35f39073a7b500d35275d">gpio_set_dir</a>(<span class="keywordtype">bool</span> out_flag);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#ab86108087c0daffd63681d67fa251dad">gpio_set_value</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#acae1641843e028c50137a54e98f7b775">gpio_get_value</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;value);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#a7b55fd565e384ed926c9a89661e7b2fa">gpio_set_edge</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *edge);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#a66de9e1b7b46de771f254721e632376c">gpio_fd_open</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSysGPIO.html#abee2c878078537aaedde9b9842926b94">gpio_poll</a>(<span class="keywordtype">int</span> gpio_fd, <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">int</span> gpio;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclassSysGPIO_html_acae1641843e028c50137a54e98f7b775"><div class="ttname"><a href="classSysGPIO.html#acae1641843e028c50137a54e98f7b775">SysGPIO::gpio_get_value</a></div><div class="ttdeci">int gpio_get_value(unsigned int &amp;value)</div><div class="ttdoc">Gets the value of a port.</div></div>
+<div class="ttc" id="aclassSysGPIO_html_abee2c878078537aaedde9b9842926b94"><div class="ttname"><a href="classSysGPIO.html#abee2c878078537aaedde9b9842926b94">SysGPIO::gpio_poll</a></div><div class="ttdeci">int gpio_poll(int gpio_fd, int timeout)</div><div class="ttdoc">Puts the current thread to sleep until a change is detected on the file descriptor.</div></div>
+<div class="ttc" id="aclassSysGPIO_html_ab86108087c0daffd63681d67fa251dad"><div class="ttname"><a href="classSysGPIO.html#ab86108087c0daffd63681d67fa251dad">SysGPIO::gpio_set_value</a></div><div class="ttdeci">int gpio_set_value(unsigned int value)</div><div class="ttdoc">Sets the value of a port.</div></div>
+<div class="ttc" id="aclassSysGPIO_html_a73efbd317132eef2c3330b527f2c986a"><div class="ttname"><a href="classSysGPIO.html#a73efbd317132eef2c3330b527f2c986a">SysGPIO::gpio_export</a></div><div class="ttdeci">int gpio_export()</div><div class="ttdoc">Starts accesss to the GPIO port.</div></div>
+<div class="ttc" id="aclassSysGPIO_html_a2fdbf36acd61b73e6d452c91ec77a975"><div class="ttname"><a href="classSysGPIO.html#a2fdbf36acd61b73e6d452c91ec77a975">SysGPIO::gpio_unexport</a></div><div class="ttdeci">int gpio_unexport()</div><div class="ttdoc">Stops access to the GPIO port.</div></div>
+<div class="ttc" id="aclassSysGPIO_html_a7b55fd565e384ed926c9a89661e7b2fa"><div class="ttname"><a href="classSysGPIO.html#a7b55fd565e384ed926c9a89661e7b2fa">SysGPIO::gpio_set_edge</a></div><div class="ttdeci">int gpio_set_edge(const char *edge)</div><div class="ttdoc">Sets the change detection on the port.</div></div>
 <div class="ttc" id="aclassSysGPIO_html"><div class="ttname"><a href="classSysGPIO.html">SysGPIO</a></div><div class="ttdef"><b>Definition:</b> gpio-sysfs.h:47</div></div>
+<div class="ttc" id="aclassSysGPIO_html_a66de9e1b7b46de771f254721e632376c"><div class="ttname"><a href="classSysGPIO.html#a66de9e1b7b46de771f254721e632376c">SysGPIO::gpio_fd_open</a></div><div class="ttdeci">int gpio_fd_open()</div><div class="ttdoc">Gets a file descriptor on the &quot;value&quot; of the port.</div></div>
+<div class="ttc" id="aclassSysGPIO_html_a3f8bbb4872f35f39073a7b500d35275d"><div class="ttname"><a href="classSysGPIO.html#a3f8bbb4872f35f39073a7b500d35275d">SysGPIO::gpio_set_dir</a></div><div class="ttdeci">int gpio_set_dir(bool out_flag)</div><div class="ttdoc">Sets direction.</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
