@@ -25,5 +25,7 @@ which waits then for an interrupt on GPIO pin 22.
 
 ## How to use it in your program
 
-Just copy `gpio-sysfs.cpp` and `gpio-sysfs.h` and include the header in your program
-or declare this git a s subproject and include the header in the subdir.
+Just copy `gpio-sysfs.cpp` and `gpio-sysfs.h` into your project 
+and include the header `gpio-sysfs.h` in your program.
+Alternatively, you could import this git as a subproject and 
+include the header in the subdir.
