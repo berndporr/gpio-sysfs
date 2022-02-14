@@ -79,6 +79,7 @@ class SysGPIO {
 	
 	/**
 	 * Gets the value of a port. Will be one or Zero.
+	 * \param value is modified by the call to one or zero.
 	 * \returns error code or zero on success
 	 **/
 	int gpio_get_value(unsigned int &value);
