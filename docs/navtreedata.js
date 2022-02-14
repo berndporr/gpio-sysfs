@@ -22,8 +22,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "I2C LSM9DS1 RaspberryPI C++ Library", "index.html", [
-    [ "Raspberry PI GPIO communication via sysfs", "index.html", null ],
+  [ "Raspberry PI GPIO communication via sysfs", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ]
