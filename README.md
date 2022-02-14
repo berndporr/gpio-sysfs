@@ -18,8 +18,10 @@ The demo program gpio-int-test waits for an interrupt for
 
 To run it type:
 
+```
 make
 sudo ./gpio-int-test 22
+```
 
 which waits then for an interrupt on GPIO pin 22.
 
