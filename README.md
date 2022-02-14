@@ -4,6 +4,12 @@ SysGPIO is a class which encapsulate the
 reading / writing and interrupt handling to/from GPIO pins
 of the raspberry pi.
 
+## Documentation
+
+The online docs are here: http://berndporr.github.io/gpio-sysfs/
+
+The docs/pdf directory contains the documentation as PDF.
+
 ## Example program
 
 The demo program gpio-int-test waits for an interrupt for 
@@ -19,5 +25,5 @@ which waits then for an interrupt on GPIO pin 22.
 
 ## How to use it in your program
 
-Just copy `gpio-sysfs.cpp` and `gpio-sysfs.h` and include them in your program
-or declare this git a s subproject under git and include them.
+Just copy `gpio-sysfs.cpp` and `gpio-sysfs.h` and include the header in your program
+or declare this git a s subproject and include the header in the subdir.
