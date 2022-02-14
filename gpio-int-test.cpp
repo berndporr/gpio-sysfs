@@ -1,5 +1,5 @@
 /* Copyright (c) 2011, RidgeRun
- * Copyright (c) 2014, Bernd Porr, mail@berndporr.me.uk
+ * Copyright (c) 2014-2022, Bernd Porr, mail@berndporr.me.uk
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -53,9 +53,7 @@
  ****************************************************************/
 int main(int argc, char **argv, char **envp)
 {
-  int gpio_fd;
   char *buf[MAX_BUF];
-  unsigned int gpio;
   int len;
   int rc;
   int counter;
@@ -66,17 +64,19 @@ int main(int argc, char **argv, char **envp)
     exit(-1);
   }
 
-  gpio = atoi(argv[1]);
+  int gpio = atoi(argv[1]);
+
+  SysGPIO pin(gpio);
 
   // switches on the sysfs entry for pin number 'gpio'
-  gpio_export(gpio);
+  pin.gpio_export();
   // sets direction to 'in'
-  gpio_set_dir(gpio, 0);
+  pin.gpio_set_dir(false);
   // detects a falling edge on pin 'gpio'
-  gpio_set_edge(gpio, "falling");
+  pin.gpio_set_edge("falling");
   // get a file descriptor pointing to 'gpio'
   // which is needed for the poll command
-  gpio_fd = gpio_fd_open(gpio);
+  int gpio_fd = pin.gpio_fd_open();
 
   // loop waiting for interrupts
   // which should really reside in a thread which lives
@@ -86,7 +86,7 @@ int main(int argc, char **argv, char **envp)
     fflush(stdout);
 
     // wait for a falling edge at the pin gpio
-    rc = gpio_poll(gpio_fd, POLL_TIMEOUT);
+    int rc = pin.gpio_poll(gpio_fd, POLL_TIMEOUT);
 
     // standard linux error codes in case of failure
     if (rc < 0) {
@@ -108,8 +108,8 @@ int main(int argc, char **argv, char **envp)
   }
 
   // closes file descriptor to pin number 'gpio'
-  gpio_fd_close(gpio_fd);
+  close(gpio_fd);
   // removes the sysfs entry for pin number 'gpio'
-  gpio_unexport(gpio);
+  pin.gpio_unexport();
   return 0;
 }
