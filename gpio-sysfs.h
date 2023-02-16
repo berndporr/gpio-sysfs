@@ -4,7 +4,7 @@
 /* Copyright (c) 2011, RidgeRun
  * Copyright (c) 2014-2022, Bernd Porr
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright
@@ -18,7 +18,7 @@
  * 4. Neither the name of the RidgeRun nor the
  *    names of its contributors may be used to endorse or promote products
  *    derived from this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY RIDGERUN AND BERND PORR ''AS IS'' AND ANY
  * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -45,71 +45,67 @@
 #define MAX_BUF 256
 
 class SysGPIO {
+  int gpio;
+
+  int checkReadWriteStatus(int status, int expectedLen) const;
 
  public:
+  explicit SysGPIO(unsigned int gpioNumber);
 
-	SysGPIO(unsigned int gpioNumber) {
-		gpio = gpioNumber;
-	}
+  /**
+   * Starts accesss to the GPIO port
+   * \returns error code or zero on success
+   **/
+  int gpio_export(void) const;
 
-	/**
-	 * Starts accesss to the GPIO port
-	 * \returns error code or zero on success
-	 **/
-	int gpio_export();
-	
-	/**
-	 * Stops access to the GPIO port
-	 * \returns error code or zero on success
-	 **/
-	int gpio_unexport();
-	
-	/**
-	 * Sets direction
-	 * \param out_flag is true for output
-	 * \returns error code or zero on success
-	 **/
-	int gpio_set_dir(bool out_flag);
-	
-	/**
-	 * Sets the value of a port. Can be one or Zero.
-	 * \returns error code or zero on success
-	 **/
-	int gpio_set_value(unsigned int value);
-	
-	/**
-	 * Gets the value of a port. Will be one or Zero.
-	 * \param value is modified by the call to one or zero.
-	 * \returns error code or zero on success
-	 **/
-	int gpio_get_value(unsigned int &value);
-	
-	/**
-	 * Sets the change detection on the port. 
-	 * \param edge can be "rising" or "falling".
-	 * \returns error code or zero on success
-	 **/	
-	int gpio_set_edge(const char *edge);
+  /**
+   * Stops access to the GPIO port
+   * \returns error code or zero on success
+   **/
+  int gpio_unexport(void) const;
 
-	/**
-	 * Gets a file descriptor on the "value" of the port.
-	 * \returns The file descriptor
-	 **/
-	int gpio_fd_open();
-	
-	/**
-	 * Puts the current thread to sleep until a change is detected
-	 * on the file descriptor. Get the file descriptor
-	 * by calling gpio_fd_open.
-	 * \param gpio_fd file descriptor of value
-	 * \param timeout Timeout in ms.
-	 * \returns error code or one on success
-	 **/
-	int gpio_poll(int gpio_fd, int timeout);
+  /**
+   * Sets direction
+   * \param out_flag is true for output
+   * \returns error code or zero on success
+   **/
+  int gpio_set_dir(bool out_flag) const;
 
- private:
+  /**
+   * Sets the value of a port. Can be one or Zero.
+   * \returns error code or zero on success
+   **/
+  int gpio_set_value(unsigned int value) const;
 
-	int gpio;
+  /**
+   * Gets the value of a port. Will be one or Zero.
+   * \param value is modified by the call to one or zero.
+   * \returns error code or zero on success
+   **/
+  int gpio_get_value(unsigned int &value) const;
+
+  /**
+   * Sets the change detection on the port.
+   * \param edge can be "rising" or "falling".
+   * \returns error code or zero on success
+   **/
+  int gpio_set_edge(const char *edge) const;
+
+  /**
+   * Gets a file descriptor on the "value" of the port.
+   * \returns The file descriptor
+   **/
+  int gpio_fd_open(void) const;
+
+  /**
+   * Puts the current thread to sleep until a change is detected
+   * on the file descriptor. Get the file descriptor
+   * by calling gpio_fd_open.
+   * \param gpio_fd file descriptor of value
+   * \param timeout Timeout in ms.
+   * \returns error code or one on success
+   **/
+  int gpio_poll(int gpio_fd, int timeout) const;
 };
 
 #endif
