@@ -4,6 +4,10 @@ SysGPIO is a class which encapsulate the
 reading / writing and interrupt handling to/from GPIO pins
 of the raspberry pi.
 
+## /sys fs decprecation warning
+
+Accessing GPIO via the sys filesystem is deprecated. Use libgpiod instead.
+
 ## Example program
 
 The demo program gpio-int-test waits for an interrupt for 
@@ -27,7 +31,3 @@ Just copy `gpio-sysfs.cpp` and `gpio-sysfs.h` into your project
 and include the header `gpio-sysfs.h` in your program.
 Alternatively, you could import this git as a subproject and 
 include the header in the subdir.
-
-## /sysfs decprecation warning
-
-Accessing GPIO via sysfs is deprecated. Use libgpiod instead.
